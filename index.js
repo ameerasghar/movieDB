@@ -6,8 +6,11 @@ const omdb = new (require("omdbapi"))("e051596");
 const app = express();
 const PORT = 3000;
 
+// view engine
+app.set("view engine", "ejs");
+
 app.get("/", (req, res) => {
-  res.send("we live in this bitch");
+  res.render("index");
 });
 
 app.get("/:search", async (req, res) => {
