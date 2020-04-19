@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <% include ./include/header %>
+  <body>
+    <div class="container">
+      <div class="row">
+        <h4>
+          Welcome to StreamDB, search for any Movie or Show to get Info...
+        </h4>
+      </div>
+      <hr />
+      <div class="row">
+        <p style="height: 30px;">To get you started...</p>
+        <ul class="collection">
+          <% data.forEach(function(movie){ %>
+          <li class="collection-item">
+            <strong><%= movie["Title"] %></strong> <i>(<%= movie.Year %>)</i>
+            <br />
+            <small><%= movie.Type.toUpperCase() %></small>
+            <br />
+            <button
+              class="btn waves-effect waves-light"
+              type="submit"
+              name="action"
+            >
+              View Details
+            </button>
+          </li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+
+    <% include ./include/scripts %> <% include ./include/footer %>
+  </body>
+</html>
