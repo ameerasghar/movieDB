@@ -43,14 +43,13 @@ app.get("/search", async (req, res) => {
   });
 });
 
-app.get("/details", async (req, res) => {
-  const search = req.query.search;
-  console.log(search);
-  var url = "http://www.omdbapi.com/?s=" + search + "&apikey=beacee9f";
+app.get("/details/:id", async (req, res) => {
+  const search = req.params.id;
+  var url = "http://www.omdbapi.com/?i=" + search + "&apikey=beacee9f";
   request(url, function (error, response, body) {
     if (!error && response.statusCode == 200) {
       var data = JSON.parse(body);
-      res.render("index", { data: data.Search });
+      res.render("details", { data: data });
     }
   });
 });

@@ -18,13 +18,11 @@
             <br />
             <small><%= movie.Type.toUpperCase() %></small>
             <br />
-            <button
-              class="btn waves-effect waves-light"
+            <input
               type="submit"
-              name="action"
-            >
-              View Details
-            </button>
+              value="View Details"
+              onclick="window.location='/details/<%= movie.imdbID %>';"
+            />
           </li>
           <% }) %>
         </ul>
